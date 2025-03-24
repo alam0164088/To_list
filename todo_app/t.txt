@@ -1,0 +1,41 @@
+todo/
+├── todo_app/                    # প্রজেক্ট ফোল্ডার
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── celery.py               # Celery কনফিগারেশন
+│   ├── settings.py             # সেটিংস ফাইল
+│   ├── urls.py                 # প্রজেক্ট URL
+│   ├── wsgi.py
+│   └── static/                 # স্ট্যাটিক ফাইল (CSS, JS, ইত্যাদি)
+│       └── css/
+│           └── style.css       # আপনার কাস্টম CSS
+├── tasks/                      # অ্যাপ ফোল্ডার
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py                 # অ্যাপ কনফিগারেশন
+│   ├── forms.py                # ফর্ম (রেজিস্ট্রেশন এবং টাস্ক)
+│   ├── migrations/             # মাইগ্রেশন ফাইল
+│   │   ├── __init__.py
+│   │   └── (অটো-জেনারেটেড মাইগ্রেশন ফাইল)
+│   ├── models.py               # মডেল (টাস্ক)
+│   ├── tasks.py                # Celery টাস্ক (নোটিফিকেশন)
+│   ├── tests.py
+│   ├── urls.py                 # অ্যাপ URL
+│   ├── views.py                # ভিউ
+│   ├── management/             # কাস্টম ম্যানেজমেন্ট কমান্ড
+│   │   ├── __init__.py
+│   │   └── commands/
+│   │       ├── __init__.py
+│   │       └── setup_periodic_tasks.py  # Periodic Task সেটআপ
+│   └── templates/              # টেমপ্লেট ফোল্ডার
+│       ├── base.html           # বেস টেমপ্লেট
+│       ├── registration/
+│       │   └── register.html   # রেজিস্ট্রেশন পেজ
+│       └── tasks/
+│           ├── task_add.html   # টাস্ক যোগ করার পেজ
+│           ├── task_list.html  # টাস্ক লিস্ট পেজ
+│           ├── task_detail.html # টাস্ক ডিটেইল পেজ
+│           └── delete_task.html # টাস্ক ডিলিট পেজ
+├── db.sqlite3                  # SQLite ডাটাবেস
+├── manage.py                   # Django ম্যানেজমেন্ট স্ক্রিপ্ট
+└── venv/                       # ভার্চুয়াল এনভায়রনমেন্ট

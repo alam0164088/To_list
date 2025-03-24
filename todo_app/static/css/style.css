@@ -1,0 +1,397 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1, #ff9ff3);
+    background-size: 600% 600%;
+    animation: rainbowGradient 20s ease infinite;
+    min-height: 100vh;
+    color: #2c3e50;
+    margin-top: 200px;
+    overflow-x: hidden;
+}
+
+@keyframes rainbowGradient {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 25% 75%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 75% 25%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid #ff9ff3;
+}
+
+.navbar-expand-lg {
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: #ff4757 !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.navbar-brand:hover {
+    color: #feca57 !important;
+    transform: scale(1.05);
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #2c3e50 !important;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff9ff3 !important;
+    transform: scale(1.1);
+}
+
+.navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link.welcome-text {
+    font-weight: 700;
+    color: #48dbfb !important;
+    padding: 0.5rem 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Hamburger Menu Styling */
+.navbar-toggler {
+    border: 2px solid #ff4757;
+    padding: 5px;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 71, 87, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid #feca57;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Headings */
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #ff4757;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 1s ease;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* Buttons */
+.btn {
+    border-radius: 30px;
+    padding: 12px 25px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #1e90ff, #48dbfb);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #00b4ff, #1e90ff);
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    border: none;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(45deg, #ff6b81, #ff4757);
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #2ecc71, #1dd1a1);
+    border: none;
+}
+
+.btn-success:hover {
+    background: linear-gradient(45deg, #1dd1a1, #27ae60);
+}
+
+/* Forms */
+.form-control {
+    border-radius: 12px;
+    border: 2px solid #48dbfb;
+    padding: 12px;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.form-control:focus {
+    border-color: #ff9ff3;
+    box-shadow: 0 0 10px rgba(255, 159, 243, 0.4);
+    transform: scale(1.02);
+}
+
+/* Task List */
+.list-group-item {
+    border-radius: 15px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #1dd1a1;
+}
+
+.list-group-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.list-group-item a {
+    color: #48dbfb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.list-group-item a:hover {
+    color: #ff4757;
+    text-decoration: underline;
+}
+
+/* Checkbox Styling */
+.task-complete {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    accent-color: #2ecc71;
+    transition: transform 0.3s;
+}
+
+.task-complete:hover {
+    transform: scale(1.2);
+}
+
+.task-complete:checked + div a {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-complete:checked + div small {
+    color: #888;
+}
+
+/* Task Detail */
+.task-detail {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    margin-top: 25px;
+    border: 1px solid #ff9ff3;
+}
+
+.task-detail p {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: #2c3e50;
+}
+
+.task-detail strong {
+    color: #ff4757;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 12px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #feca57;
+    color: #2c3e50;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    .btn {
+        padding: 10px 20px;
+    }
+    body {
+        margin-top: 120px;
+    }
+    .task-complete {
+        width: 20px;
+        height: 20px;
+    }
+    .navbar-nav {
+        padding: 10px 0;
+    }
+    .nav-link {
+        padding: 0.8rem 1rem;
+    }
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        margin-top: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Registration Page Specific Styles */
+.registration-container {
+    max-width: 500px; /* ছোট কনটেইনার */
+    margin: 50px auto; /* কেন্দ্রে রাখা */
+    padding: 0;
+}
+
+.registration-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ff9ff3; /* কালারফুল বর্ডার */
+    transition: transform 0.3s ease;
+}
+
+.registration-box:hover {
+    transform: translateY(-10px); /* হোভারে উঠে আসবে */
+}
+
+.registration-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff4757;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.registration-subtitle {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.registration-form .form-label {
+    font-weight: 600;
+    color: #1e90ff;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.registration-form .form-control {
+    border: 2px solid #48dbfb;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.registration-form .form-control:focus {
+    border-color: #ff9ff3;
+    box-shadow: 0 0 12px rgba(255, 159, 243, 0.5);
+    transform: scale(1.02);
+}
+
+.registration-form .text-danger {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.registration-form .btn-success {
+    background: linear-gradient(45deg, #2ecc71, #1dd1a1);
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.registration-form .btn-success:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+}
+
+.login-link {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #ff4757;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login-link a:hover {
+    color: #feca57;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .registration-box {
+        padding: 20px;
+    }
+    .registration-title {
+        font-size: 2rem;
+    }
+    .registration-subtitle {
+        font-size: 1rem;
+    }
+    .registration-form .btn-success {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}

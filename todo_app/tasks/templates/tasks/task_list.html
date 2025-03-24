@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>My Tasks</h1>
+        
+        <form method="GET" class="mb-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text" name="q" class="form-control" placeholder="Search tasks..." value="{{ request.GET.q }}">
+                </div>
+                <div class="col-md-4">
+                    <select name="status" class="form-control">
+                        <option value="">All Status</option>
+                        <option value="To Do" {% if request.GET.status == 'To Do' %}selected{% endif %}>To Do</option>
+                        <option value="In Progress" {% if request.GET.status == 'In Progress' %}selected{% endif %}>In Progress</option>
+                        <option value="Done" {% if request.GET.status == 'Done' %}selected{% endif %}>Done</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary w-100">Filter</button>
+                </div>
+            </div>
+        </form>
+
+        <ul class="list-group">
+            {% for task in tasks %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <input type="checkbox" class="task-complete mr-2" data-task-id="{{ task.id }}" {% if task.completed %}checked{% endif %}>
+                        <div>
+                            <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a> 
+                            <small class="text-muted"> - {{ task.status|title }} - Due: {{ task.due_date }} {{ task.due_time }}</small>
+                        </div>
+                    </div>
+                    <a href="{% url 'delete_task' task.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </li>
+            {% empty %}
+                <li class="list-group-item text-center">No tasks found.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_task' %}" class="btn btn-success mt-3">Add New Task</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.task-complete').on('change', function() {
+                var taskId = $(this).data('task-id');
+                var isChecked = $(this).is(':checked');
+                
+                $.ajax({
+                    url: '/tasks/toggle/' + taskId + '/',
+                    method: 'POST',
+                    data: {
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            console.log('Task updated: ' + response.completed);
+                        }
+                    },
+                    error: function() {
+                        alert('Error updating task');
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

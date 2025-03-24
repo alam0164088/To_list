@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="text-center mt-5">
+        <h1>Welcome to To-Do App</h1>
+        {% if user.is_authenticated %}
+            <p><a href="{% url 'task_list' %}" class="btn btn-primary mt-3">View Your Tasks</a></p>
+        {% else %}
+            <p class="mt-3">Please <a href="{% url 'login' %}" class="btn btn-outline-primary">Login</a> or <a href="{% url 'register' %}" class="btn btn-outline-primary">Register</a> to manage your tasks.</p>
+        {% endif %}
+    </div>
+{% endblock %}
